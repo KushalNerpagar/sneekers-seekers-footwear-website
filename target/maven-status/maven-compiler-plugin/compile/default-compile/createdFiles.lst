@@ -1,0 +1,8 @@
+com\sneekersseekers\controller\CatalogController.class
+com\sneekersseekers\controller\AuthController.class
+com\sneekersseekers\controller\CartController.class
+com\sneekersseekers\SneekersSeekersApplication.class
+com\sneekersseekers\service\UserManager.class
+com\sneekersseekers\service\ShoeRepository.class
+com\sneekersseekers\controller\OrderController.class
+com\sneekersseekers\model\Shoe.class
