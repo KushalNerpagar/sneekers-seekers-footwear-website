@@ -14,14 +14,34 @@ public class ShoeRepository {
     
     static {
         // Initialize with sample shoes
-        shoes.add(new Shoe(1, "Nike", "Air Max 270", "Running", 150.00, "https://example.com/nike-airmax270.jpg"));
-        shoes.add(new Shoe(2, "Adidas", "Ultraboost 22", "Running", 180.00, "https://example.com/adidas-ultraboost22.jpg"));
-        shoes.add(new Shoe(3, "Jordan", "Air Jordan 1", "Basketball", 170.00, "https://example.com/jordan-aj1.jpg"));
-        shoes.add(new Shoe(4, "Converse", "Chuck Taylor All Star", "Casual", 65.00, "https://example.com/converse-chucktaylor.jpg"));
-        shoes.add(new Shoe(5, "Vans", "Old Skool", "Skateboarding", 60.00, "https://example.com/vans-oldskool.jpg"));
-        shoes.add(new Shoe(6, "Puma", "RS-X Reinvention", "Lifestyle", 120.00, "https://example.com/puma-rsx.jpg"));
-        shoes.add(new Shoe(7, "New Balance", "990v5", "Running", 185.00, "https://example.com/newbalance-990v5.jpg"));
-        shoes.add(new Shoe(8, "Reebok", "Classic Leather", "Lifestyle", 80.00, "https://example.com/reebok-classicleather.jpg"));
+        shoes.add(new Shoe(1, "Nike", "Air Max 270", "Running", 150.00, "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8c399600-f983-4d92-b323-315cc869dbcd/AIR+JORDAN+MULE.png"));
+        shoes.add(new Shoe(2, "Adidas", "Ultraboost 22", "Running", 180.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(3, "Jordan", "Air Jordan 1", "Basketball", 170.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(4, "Converse", "Chuck Taylor All Star", "Casual", 65.00, "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8c399600-f983-4d92-b323-315cc869dbcd/AIR+JORDAN+MULE.png"));
+        shoes.add(new Shoe(5, "Vans", "Old Skool", "Skateboarding", 60.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(6, "Puma", "RS-X Reinvention", "Lifestyle", 120.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(7, "New Balance", "990v5", "Running", 185.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(8, "Reebok", "Classic Leather", "Lifestyle", 80.00, "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8c399600-f983-4d92-b323-315cc869dbcd/AIR+JORDAN+MULE.png"));
+        shoes.add(new Shoe(9, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(10, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(11, "Reebok", "Classic Leather", "Lifestyle", 80.00, "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8c399600-f983-4d92-b323-315cc869dbcd/AIR+JORDAN+MULE.png"));
+        shoes.add(new Shoe(12, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(13, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(14, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(15, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(16, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(17, "Reebok", "Classic Leather", "Lifestyle", 80.00, "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8c399600-f983-4d92-b323-315cc869dbcd/AIR+JORDAN+MULE.png"));
+        shoes.add(new Shoe(18, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(19, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(20, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(21, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(22, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(23, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(24, "Reebok", "Classic Leather", "Lifestyle", 80.00, "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8c399600-f983-4d92-b323-315cc869dbcd/AIR+JORDAN+MULE.png"));
+        shoes.add(new Shoe(25, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        shoes.add(new Shoe(26, "Reebok", "Classic Leather", "Lifestyle", 80.00, "/images/ultra-boost-22.webp"));
+        
+
     }
     
     public List<Shoe> getAllShoes() {

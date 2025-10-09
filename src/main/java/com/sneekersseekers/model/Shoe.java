@@ -1,4 +1,5 @@
 package com.sneekersseekers.model;
+import java.util.Objects;
 
 public class Shoe {
     private Integer id;
@@ -70,6 +71,33 @@ public class Shoe {
         this.imageUrl = imageUrl;
     }
 
+
+
+    
+
+    // ... your existing code ...
+    
+    // PASTE THE FOLLOWING TWO METHODS HERE
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Shoe shoe = (Shoe) o;
+        // This tells Java that two Shoe objects are the "same" if their IDs are identical.
+        return Objects.equals(id, shoe.id);
+    }
+
+    @Override
+    public int hashCode() {
+        // This generates a unique code for the object based on its ID.
+        return Objects.hash(id);
+    }
+    
+    // ... your existing toString() method ...
+
+    
+
     @Override
     public String toString() {
         return "Shoe{" +
@@ -81,4 +109,5 @@ public class Shoe {
                 ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
+    
 }

@@ -18,13 +18,20 @@
         .search-form button:hover { background-color: #0056b3; }
         .shoes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         .shoe-card { background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden; }
-        .shoe-image { width: 100%; height: 200px; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; font-size: 48px; }
-        .shoe-info { padding: 20px; }
+/* .shoe-image {
+    width: 100%;           The image will fill the width of the card's top area 
+    height: 200px;         It will have a fixed height 
+    object-fit: contain;  THIS IS THE FIX: Scales the image to fit without distortion 
+    background-color: #f8f9fa;  A light background for any empty space 
+}     */
+.shoe-image { width: 100%; height: 200px; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+
+    .shoe-info { padding: 20px; }
         .shoe-brand { font-weight: bold; color: #333; margin-bottom: 5px; }
         .shoe-model { color: #666; margin-bottom: 10px; }
         .shoe-category { color: #888; font-size: 14px; margin-bottom: 10px; }
         .shoe-price { font-size: 18px; font-weight: bold; color: #28a745; margin-bottom: 15px; }
-        .add-to-cart { width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .add-to-cart { width: 100%; padding: 10px; background-color: #28a745; text-decoration: none; color: white; border: none; border-radius: 5px; cursor: pointer; }
         .add-to-cart:hover { background-color: #218838; }
         .search-results { margin-bottom: 20px; color: #666; }
     </style>
@@ -50,18 +57,35 @@
         <p>Search results for: "<span th:text="${searchQuery}"></span>"</p>
     </div>
     
+    <!-- <div class="shoes-grid">
+    <div th:each="shoe : ${shoes}" class="shoe-card" th:id="'shoe-' + ${shoe.id}">
+        
+        <div class="shoe-image">👟</div>
+        
+        <div class="shoe-info">
+            <div class="shoe-brand" th:text="${shoe.brand}"></div>
+            <div class="shoe-model" th:text="${shoe.model}"></div>
+            <div class="shoe-category" th:text="${shoe.category}"></div>
+            <div class="shoe-price">$<span th:text="${#numbers.formatDecimal(shoe.price, 1, 2)}"></span></div>
+            <a th:href="@{/add-to-cart/{id}(id=${shoe.id})}" class="add-to-cart">Add to Cart</a>
+        </div>
+
+    </div> </div> -->
     <div class="shoes-grid">
-        <div th:each="shoe : ${shoes}" class="shoe-card">
-            <div class="shoe-image">👟</div>
+        <div th:each="shoe : ${shoes}" class="shoe-card" th:id="'shoe-' + ${shoe.id}">
+            
+            <!-- <div class="shoe-image">👟</div> -->
+            <img th:src="@{${shoe.imageUrl}}" alt="Shoe Image" class="shoe-image"/>
+            
             <div class="shoe-info">
                 <div class="shoe-brand" th:text="${shoe.brand}"></div>
                 <div class="shoe-model" th:text="${shoe.model}"></div>
                 <div class="shoe-category" th:text="${shoe.category}"></div>
                 <div class="shoe-price">$<span th:text="${#numbers.formatDecimal(shoe.price, 1, 2)}"></span></div>
-                <a th:href="@{'/details/' + ${shoe.id}}" class="add-to-cart">Add to Cart</a>
+                <a th:href="@{/add-to-cart/{id}(id=${shoe.id})}" class="add-to-cart">Add to Cart</a>
             </div>
-        </div>
-    </div>
+    
+        </div> </div>
     
     <!-- <a th:href="@{/cart}" class="cart-link">🛒 View Cart</a> -->
 </body>
