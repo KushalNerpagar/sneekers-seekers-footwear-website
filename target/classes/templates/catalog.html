@@ -24,7 +24,7 @@
     object-fit: contain;  THIS IS THE FIX: Scales the image to fit without distortion 
     background-color: #f8f9fa;  A light background for any empty space 
 }     */
-.shoe-image { width: 100%; height: 200px; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+.shoe-image { width: 100%; height: 200px; object-fit: cover; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; font-size: 48px; }
 
     .shoe-info { padding: 20px; }
         .shoe-brand { font-weight: bold; color: #333; margin-bottom: 5px; }
@@ -81,7 +81,8 @@
                 <div class="shoe-brand" th:text="${shoe.brand}"></div>
                 <div class="shoe-model" th:text="${shoe.model}"></div>
                 <div class="shoe-category" th:text="${shoe.category}"></div>
-                <div class="shoe-price">$<span th:text="${#numbers.formatDecimal(shoe.price, 1, 2)}"></span></div>
+                <!-- <div class="shoe-price">$<span th:text="${#numbers.formatDecimal(shoe.price, 1, 2)}"></span></div> -->
+                <div class="shoe-price">₹<span th:text="${#numbers.formatDecimal(shoe.price, 1, 2)}"></span></div>
                 <a th:href="@{/add-to-cart/{id}(id=${shoe.id})}" class="add-to-cart">Add to Cart</a>
             </div>
     

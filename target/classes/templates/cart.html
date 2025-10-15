@@ -63,20 +63,16 @@
             margin-bottom: 25px;
         }
         
-        /* --- SCROLLABLE WRAPPER STYLES --- */
         .cart-items-wrapper {
-            max-height: 400px; /* FIXED HEIGHT: Items will stack up to this height */
-            overflow-y: scroll; /* Makes the content scrollable vertically */
+            max-height: 400px;
+            overflow-y: auto;
             padding-right: 15px;
-            
-            /* HIDE SCROLLBAR TRICK for Webkit (Chrome, Safari) */
-            -ms-overflow-style: none; /* IE and Edge */
-            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
         .cart-items-wrapper::-webkit-scrollbar {
-            display: none; /* Hide for Webkit browsers */
+            display: none;
         }
-        /* --- END SCROLLABLE WRAPPER STYLES --- */
 
         .cart-item {
             display: flex;
@@ -98,7 +94,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 28px;
+            font-weight: bold;
             margin-right: 25px;
             border-radius: 50%;
             flex-shrink: 0;
@@ -133,8 +130,6 @@
             text-align: right;
             flex-shrink: 0;
         }
-
-        /* Removed .remove-link styles */
 
         .total-section {
             margin-top: 30px;
@@ -179,38 +174,26 @@
             border: 1px dashed #ccc;
             border-radius: 5px;
         }
-        /* --- New Styling for the 'X' Button with Hover Effect --- */
-.remove-btn {
-    /* Sizing and Shape */
-    width: 28px;
-    height: 28px;
-    border-radius: 50%; /* Makes it a perfect circle */
-    
-    /* Centering the 'X' */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    /* Default State: Red circle, red 'X' */
-    border: 2px solid #dc3545;
-    background-color: transparent;
-    color: #dc3545;
-
-    /* Text and Cursor Styling */
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    
-    /* Smooth transition for the hover effect */
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.remove-btn:hover {
-    /* Hover State: Red background, white 'X' */
-    background-color: #dc3545;
-    color: white;
-}
+        .remove-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #dc3545;
+            background-color: transparent;
+            color: #dc3545;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .remove-btn:hover {
+            background-color: #dc3545;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -218,7 +201,7 @@
         <h1>👟 Sneekers Seekers</h1>
         <div class="user-info">
             Welcome, <span th:text="${username}">User!</span>!
-            <a th:href="@{/catalog}">🏠 Catalog</a>
+            <a th:href="@{/catalog}">🏠 Catalog</a> 
             <a th:href="@{/logout}">Logout</a> 
         </div>
     </div>
@@ -227,31 +210,32 @@
         <h2>Shopping Cart</h2>
         
         <div th:if="${cart != null and !cart.empty}">
-            
             <div class="cart-items-wrapper"> 
-                <div th:each="shoe : ${cart}" class="cart-item"> 
-                    <!-- <div class="item-image">👟</div> -->
-                    <div class="item-image" th:text="${#strings.substring(shoe.brand, 0, 1)}">N</div>
+                <!-- UPDATED LOOP FOR MAP -->
+                <div th:each="entry : ${cart}" class="cart-item"> 
+                    <div class="item-image" th:text="${#strings.substring(entry.key.brand, 0, 1)}">N</div>
                     <div class="item-details">
-                        <div class="item-brand" th:text="${shoe.brand}"></div>
-                        <div class="item-model" th:text="${shoe.model}"></div>
-                        <div class="item-category" th:text="${shoe.category}"></div>
-                        
+                        <div class="item-brand" th:text="${entry.key.brand}"></div>
+                        <div class="item-model">
+                            <span th:text="${entry.key.model}"></span>
+                            <!-- DISPLAYS QUANTITY (e.g., (x2)) -->
+                            <span th:if="${entry.value > 1}" th:text="' (x' + ${entry.value} + ')'" style="color: #007bff; font-weight: bold;"></span>
                         </div>
-                    
-                    <div class="item-price">
-                        $<span th:text="${#numbers.formatDecimal(shoe.price, 1, 2)}"></span>
+                        <div class="item-category" th:text="${entry.key.category}"></div>
                     </div>
-                    <a th:href="@{/remove-from-cart/{id}(id=${shoe.id})}" class="remove-btn">
+                    <div class="item-price">
+                        ₹<span th:text="${#numbers.formatDecimal(entry.key.price, 1, 2)}"></span>
+                    </div>
+                    <!-- UPDATED REMOVE LINK -->
+                    <a th:href="@{/remove-from-cart/{id}(id=${entry.key.id})}" class="remove-btn">
                         &times;
                     </a>
                 </div>
             </div>
             <div class="total-section">
                 <div class="total-amount">
-                    Total: $<span th:text="${total}">0.00</span> 
+                    Total: ₹<span th:text="${total}">0.00</span> 
                 </div>
-                
                 <a th:href="@{/order-placed}" class="checkout-btn">
                     Pay Now (Order Placement)
                 </a>
