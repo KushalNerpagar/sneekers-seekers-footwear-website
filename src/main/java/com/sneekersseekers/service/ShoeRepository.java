@@ -40,11 +40,8 @@ public class ShoeRepository {
         shoes.add(new Shoe(24, "ForeverRun Nitro 2", "Puma", "Lifestyle", 120.00, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyvOIvTq8kmHnWBA3hqQjrPbleCw-63mVxVyhoC72AdbagbxfoCR7hAuqDu9zNRlIll6Q&usqp=CAU"));
         shoes.add(new Shoe(25, "Jordan Spizike Low", "Jordan", "Lifestyle", 120.00, "https://www.superkicks.in/cdn/shop/files/1_4a501f46-0fbe-4d64-a565-7bbc723148de.jpg?v=1724672562"));
         shoes.add(new Shoe(26, "Jordan Luka 3", "Jordan", "Lifestyle", 120.00, "https://static.nbastore.in/resized/500X500/741/jordan-luka-3-pf-basketball-shoes-chlorine-bluehyper-pinkblack-blue-6722398e40b34.jpg?format=webp"));
-
         shoes.add(new Shoe(27, "6 Rings", "Jordan", "Lifestyle", 120.00, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJXDZ_NG935zBfsZ1kxGFIUb9r5fzOT0p_WJ9dCgqR7BuDsXbqO34rAF5FNMFR4EO5NQ0&usqp=CAU"));
-
         shoes.add(new Shoe(28, "Legacy 312 Low", "Jordan", "Lifestyle", 120.00, "https://static.nbastore.in/resized/500X500/709/air-jordan-legacy-312-low-sneakers-white-white-670571c65a979.jpg?format=webp"));
-
         shoes.add(new Shoe(29, "Jordan One Take 5", "Jordan", "Lifestyle", 120.00, "https://cdn.sportdepot.bg/files/catalog/detail/FD2338-104_01.jpg"));
         shoes.add(new Shoe(30, "Jordan Tatum 1", "Jordan", "Lifestyle", 120.00, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQldN0bA-PoMRhYnYDw4CA5SzFhWY1Bwm-sZA&s"));
 
