@@ -22,7 +22,6 @@ public class CatalogController {
                          Model model, 
                          HttpSession session) {
         
-        // Check if user is logged in
         String username = (String) session.getAttribute("username");
         if (username == null) {
             return "redirect:/login";

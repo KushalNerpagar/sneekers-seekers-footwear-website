@@ -13,7 +13,6 @@ public class ShoeRepository {
     private static final List<Shoe> shoes = new ArrayList<>();
     
     static {
-        // Initialize with sample shoes
         shoes.add(new Shoe(1,  "Air Max 270", "Nike", "Running", 4599.00, "https://cdn.evrysz.net/473x340/18/nike-air-max-270-fn3412600.png"));
         shoes.add(new Shoe(2, "Ultraboost 22", "Adidas", "Running", 5999.00, "/images/ultra-boost-22.webp"));
         shoes.add(new Shoe(3, "Air Jordan 1", "Jordan", "Basketball", 6999.00, "https://images.vegnonveg.com/resized/1020X1200/13586/jordan-air-jordan-1-mid-whiteblack-light-smoke-grey-68831dfbaf2cc.jpg?format=webp"));

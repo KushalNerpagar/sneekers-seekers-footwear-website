@@ -16,10 +16,6 @@ public class CartController {
 
     @Autowired
     private ShoeRepository shoeRepository;
-
-    // --- Utility Methods (UPDATED FOR MAP) ---
-
-    // Safely retrieves or creates a new cart map from the session
     private Map<Shoe, Integer> getCart(HttpSession session) {
         Map<Shoe, Integer> cart = (Map<Shoe, Integer>) session.getAttribute("cart");
         if (cart == null) {
@@ -29,14 +25,12 @@ public class CartController {
         return cart;
     }
 
-    // Calculates the total price (price * quantity)
     private double calculateTotal(Map<Shoe, Integer> cart) {
         return cart.entrySet().stream()
                    .mapToDouble(entry -> entry.getKey().getPrice() * entry.getValue())
                    .sum();
     }
     
-    // --- 1. ADD TO CART (UPDATED FOR QUANTITY) ---
     @GetMapping("/add-to-cart/{id}")
     public String addToCart(@PathVariable Integer id, HttpSession session) {
         if (session.getAttribute("username") == null) {
@@ -47,14 +41,12 @@ public class CartController {
         
         if (shoeToAdd != null) {
             Map<Shoe, Integer> cart = getCart(session);
-            // If shoe is already in cart, increment quantity; otherwise, add with quantity 1
             cart.put(shoeToAdd, cart.getOrDefault(shoeToAdd, 0) + 1);
         }
         
         return "redirect:/catalog#shoe-" + id;
     }
     
-    // --- 2. VIEW CART (UPDATED FOR MAP) ---
     @GetMapping("/cart")
     public String viewCart(Model model, HttpSession session) {
         if (session.getAttribute("username") == null) {
@@ -71,7 +63,6 @@ public class CartController {
         return "cart";
     }
     
-    // --- 3. REMOVE FROM CART (UPDATED FOR MAP) ---
     @GetMapping("/remove-from-cart/{shoeId}")
     public String removeFromCart(@PathVariable Integer shoeId, HttpSession session) {
         if (session.getAttribute("username") == null) {
@@ -83,14 +74,12 @@ public class CartController {
         Shoe itemToRemove = new Shoe();
         itemToRemove.setId(shoeId);
 
-        // Removes the entire entry from the map
         cart.remove(itemToRemove); 
         
         session.setAttribute("cart", cart);
         return "redirect:/cart";
     }
 
-    // --- 4. FINAL PURCHASE ACTION (UPDATED FOR MAP) ---
     @GetMapping("/order-placed")
     public String orderPlaced(HttpSession session, Model model) {
         if (session.getAttribute("username") == null) {

@@ -11,7 +11,6 @@ public class UserManager {
     private static final Map<String, String> users = new HashMap<>();
     
     static {
-        // Initialize with test users
         users.put("admin", "password123");
         users.put("user1", "test123");
         users.put("john", "john123");
@@ -24,7 +23,7 @@ public class UserManager {
         }
         
         if (users.containsKey(username)) {
-            return false; // User already exists
+            return false; 
         }
         
         users.put(username, password);
